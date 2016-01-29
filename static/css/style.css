@@ -1,0 +1,48 @@
+#textp {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1.5cm;
+    margin-right: 1cm;
+    text-align: justify;
+} 
+#texth {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0.5cm;
+    margin-right: 0;
+}
+#olp {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1 em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+#list_ul {
+    list-style-type:disc;
+} 
+#row {
+        float:left; 
+        margin-left:15px; 
+        text-align:left;
+        }
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    margin-left: 60px;
+
+}
+img.contact_ava {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border: 2px solid #cccccc;
+}
+.caption {
+    display: block;
+}
