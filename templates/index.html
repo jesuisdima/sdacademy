@@ -1,99 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SD Academy - Main</title>
-    
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
-    
-
-
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-          <a class="navbar-brand" href="index.html">
-          <img style="width: 28px" alt="Brand" src="../static/images/logo.png">
-        </a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </ul>
-    </div>
-  </div>
-  </nav>
-
-  <h1 id="texth">SD Academy Description</h1>
-  <h3 id="texth">Чем интересен наш курс?</h3>
-  <p id="textp">Практический курс по изучению современного языка программирования Python и фреимворка Django. Обучение будет проходить с уклоном в веб-разработку. Мы учим начинающих программистов до уровня Junior Python Developer и после окончания курса все ученики могут претендовать на эту должность в любой интернет-компанию. Весь курс построен на практике: преподаватели-практики, обучение на примере разработки реальных проектов, практические домашние задания.
-
-На курсе мы Вас познакомим с языком Python, фреимворком Django, научим работать с базами данных, покажем, как проводить UnitTest, вместе сделаем работающий проект на Python / Django и освоим еще много полезного.
-
-После успешного окончания обучения всем предоставляется именной сертификат, который высылается почтой владельцу.
-
-Для нас это уже третья группа, и многие из наших учеников успешно работают в сфере Python Development. Курс совершенствуется из года в год и становится еще более эффективным.
-</p>
-  <h3 id="texth">Program:</h3>
-  <p id="textp">
-    <ol>
-    <li>Почему Python / Django? (вводное занятие)</li>
-    <li>Краткий курс Python для Django программистов. (1-й и 2-й месяцы). Где используется Python?</li>
-    <ul>
-<li id="list_ul">Типы данных. Основные конструкци.</li>
-<li id="list_ul">Рецепты сладостей (синтаксический сахар)</li>
-<li id="list_ul">Функции</li>
-<li id="list_ul">Модули</li>
-<li id="list_ul">Пакеты</li>
-<li id="list_ul">ООП в Python</li>
-<li id="list_ul">Обработка исключений</li>
-<li id="list_ul">Декораторы</li>
-<li id="list_ul">WSGI</li>
-<li id="list_ul">Готовим Web-приложение на Python</li>
-</ul>
-
-<li>На Django ведь проще! Web-приложение на Python/Django. (3-й месяц)</li>
-
-<li>Боевое Django. Проект «MicroSocial». (4-й и 5-й месяцы)</li>
-<ul>
-<li id="list_ul">Рецепты Django сладостей</li>
-<li id="list_ul">Разбираем сущности - основа проектирования любого проекта</li>
-<li id="list_ul">Проектируем базу данных</li>
-<li id="list_ul">Работаем с данными. Модели</li>
-<li id="list_ul">Время потестировать — UnitTest в Django</li>
-<li id="list_ul">Формы</li>
-<li id="list_ul">Представления</li>
-<li id="list_ul">Первый пользователь</li>
-<li id="list_ul">Шаблоны</li>
-<li id="list_ul">Интернационализация приложения</li>
-<li id="list_ul">Отношения между сущностями. Связи в моделях</li>
-<li id="list_ul">Обмен сообщениями</li>
-<li id="list_ul">Группы пользователей</li>
-<li id="list_ul">Обобщенные представления. Отказ от велосипедов</li>
-<li id="list_ul">Немного личной жизни или как спрятать «старого друга». Динамический ACL</li>
-<li id="list_ul">Сдача проекта. Подводим итоги</li>
-</ul>
-<li>Тестирование и награждение лучших</li>
-</ol>
-</p>
-
-  </body>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>SD Academy - Main</title>
+      <link href="../static/css/bootstrap.css" rel="stylesheet">
+      <link href="../static/css/style.css" rel="stylesheet">
+   </head>
+   <body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="../static/js/bootstrap.js"></script>
+      <nav class="navbar navbar-default">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="index.html">
+               <img style="width: 28px" alt="Brand" src="../static/images/logo.png">
+               </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li><a href="index.html">Main</a></li>
+                  <li><a href="contact.html">Contacts</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <h1 id="texth">SD Academy Description</h1>
+      <h3 id="texth">Чем интересен наш курс?</h3>
+      <p id="textp">Практический курс по изучению современного языка программирования Python и фреимворка Django. Обучение будет проходить с уклоном в веб-разработку. Мы учим начинающих программистов до уровня Junior Python Developer и после окончания курса все ученики могут претендовать на эту должность в любой интернет-компанию. Весь курс построен на практике: преподаватели-практики, обучение на примере разработки реальных проектов, практические домашние задания.
+         На курсе мы Вас познакомим с языком Python, фреимворком Django, научим работать с базами данных, покажем, как проводить UnitTest, вместе сделаем работающий проект на Python / Django и освоим еще много полезного.
+         После успешного окончания обучения всем предоставляется именной сертификат, который высылается почтой владельцу.
+         Для нас это уже третья группа, и многие из наших учеников успешно работают в сфере Python Development. Курс совершенствуется из года в год и становится еще более эффективным.
+      </p>
+      <h3 id="texth">Program:</h3>
+      <p id="textp">
+      <ol>
+         <li>Почему Python / Django? (вводное занятие)</li>
+         <li>Краткий курс Python для Django программистов. (1-й и 2-й месяцы). Где используется Python?</li>
+         <ul>
+            <li id="list_ul">Типы данных. Основные конструкци.</li>
+            <li id="list_ul">Рецепты сладостей (синтаксический сахар)</li>
+            <li id="list_ul">Функции</li>
+            <li id="list_ul">Модули</li>
+            <li id="list_ul">Пакеты</li>
+            <li id="list_ul">ООП в Python</li>
+            <li id="list_ul">Обработка исключений</li>
+            <li id="list_ul">Декораторы</li>
+            <li id="list_ul">WSGI</li>
+            <li id="list_ul">Готовим Web-приложение на Python</li>
+         </ul>
+         <li>На Django ведь проще! Web-приложение на Python/Django. (3-й месяц)</li>
+         <li>Боевое Django. Проект «MicroSocial». (4-й и 5-й месяцы)</li>
+         <ul>
+            <li id="list_ul">Рецепты Django сладостей</li>
+            <li id="list_ul">Разбираем сущности - основа проектирования любого проекта</li>
+            <li id="list_ul">Проектируем базу данных</li>
+            <li id="list_ul">Работаем с данными. Модели</li>
+            <li id="list_ul">Время потестировать — UnitTest в Django</li>
+            <li id="list_ul">Формы</li>
+            <li id="list_ul">Представления</li>
+            <li id="list_ul">Первый пользователь</li>
+            <li id="list_ul">Шаблоны</li>
+            <li id="list_ul">Интернационализация приложения</li>
+            <li id="list_ul">Отношения между сущностями. Связи в моделях</li>
+            <li id="list_ul">Обмен сообщениями</li>
+            <li id="list_ul">Группы пользователей</li>
+            <li id="list_ul">Обобщенные представления. Отказ от велосипедов</li>
+            <li id="list_ul">Немного личной жизни или как спрятать «старого друга». Динамический ACL</li>
+            <li id="list_ul">Сдача проекта. Подводим итоги</li>
+         </ul>
+         <li>Тестирование и награждение лучших</li>
+      </ol>
+      </p>
+   </body>
 </html>
-
-
-
