@@ -50,18 +50,21 @@ td {
     text-align:left;
 }
 
-p.small1 {
+.small1 {
     line-height: 0.5;
 }
-p.small2 {
+.small2 {
     line-height: 0.6;
 }
-p.small3 {
+.small3 {
     line-height: 0.7;
 }
-p.small4 {
+.small4 {
     line-height: 0.8;
 }
-p.small5 {
+.small5 {
+    line-height: 0.9;
+}
+.small6 {
     line-height: 0.9;
 }
