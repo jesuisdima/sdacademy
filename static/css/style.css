@@ -44,5 +44,8 @@ img.contact_ava {
     border: 2px solid #cccccc;
 }
 .caption {
-    display: block;
+    display:block;
+}
+td {
+    text-align:left;
 }
