@@ -49,3 +49,19 @@ img.contact_ava {
 td {
     text-align:left;
 }
+
+p.small1 {
+    line-height: 0.5;
+}
+p.small2 {
+    line-height: 0.6;
+}
+p.small3 {
+    line-height: 0.7;
+}
+p.small4 {
+    line-height: 0.8;
+}
+p.small5 {
+    line-height: 0.9;
+}
