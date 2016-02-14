@@ -42,8 +42,8 @@ def quadratic_results(request):
 	except:
 		pass
 
-	x1 = ''
-	x2 = ''
+	x1 = float()
+	x2 = float()
 
 	try:
 		discrim = b**2 - 4 * a * c
@@ -51,12 +51,12 @@ def quadratic_results(request):
 			final_message = messages['mes5']
 		if discrim == 0:
 			x1 = -b/2*a
-			final_message = ''.join(messages['mes6'] + str(x1))
+			final_message = ''.join(messages['mes6'] + str(float(x1)))
 		if discrim > 0:
 			x1 = (-b+discrim**0.5)/(2*a)
 			x2 = (-b-discrim**0.5)/(2*a)
 			final_message = ''.join(messages['mes4'] + 
-				'x1 = ' + str(x1) + ', x2 = ' + str(x2))
+				'x1 = ' + str(float(x1)) + ', x2 = ' + str(float(x2)))
 	except:
 		discrim = ''
 		final_message = ''
