@@ -14,23 +14,37 @@ messages = {
 def quadratic_results(request):
 
 	values = [request.GET['a'], request.GET['b'], request.GET['c']]
+	value_comment = ['','','']
+
 	for i in range(len(values)):
 		try:
 			values[i] = int(values[i])
+			value_comment[i] = ''
 		except:
 			if len(values[i]) == 0:
-				values[i] = messages['mes1']
+				value_comment[i] = messages['mes1']
 			else:
-				values[i] = messages['mes2']
+				value_comment[i] = messages['mes2']
 
-	a = values[0]
-	b = values[1]
-	c = values[2]
+	a = request.GET['a']
+	b = request.GET['b']
+	c = request.GET['c']
 
-	a = messages['mes3'] if a == 0 else a
+	try:
+		a = int(a)
+		b = int(b)
+		c = int(c)
+	except:
+		pass
+
+	try:
+		value_comment[0] = messages['mes3'] if int(a) == 0 else value_comment[0]
+	except:
+		pass
 
 	x1 = ''
 	x2 = ''
+	
 	try:
 		discrim = b**2 - 4 * a * c
 		if discrim < 0:
@@ -47,10 +61,9 @@ def quadratic_results(request):
 		discrim = ''
 		final_message = ''
 
-
 	return render(request, 'results.html', {
-		'a':a, 
-		'b':b, 
-		'c':c,
+		'a':a, 'a_comment':value_comment[0],
+		'b':b, 'b_comment':value_comment[1],
+		'c':c, 'c_comment':value_comment[2],
 		'discrim':discrim, 
 		'final_message':final_message})
