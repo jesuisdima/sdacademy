@@ -7,11 +7,16 @@
       <title>Equation</title>
    </head>
    <body>
-   <h3>Квадратное уравнение</h3>
-      a * x**2 + b * x + c = 0<br />
-      discr = b**2 - 4 * a * c<br />
-      x = (-b**2 + discr**0.5) / 2 * a<br />
+   <div style="color:#333;font-family:helvetica;font-size:16px">
+   <p>Квадратное уравнение: a * x**2 + b * x + c = 0</p>
+<ul>
+      <li>a = {{ a }}</li>
+      <li>b = {{ b }}</li>
+      <li>c = {{ c }}</li>
+</ul>
 
-      a = {{ a }}
+      Дискриминант: {{ discrim }}<br/ >
+         {{ final_message }}<br/ >
+      </div>
    </body>
 </html>
