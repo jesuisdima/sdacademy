@@ -13,7 +13,11 @@ messages = {
 
 def quadratic_results(request):
 
-	values = [request.GET['a'], request.GET['b'], request.GET['c']]
+	a = request.GET.get('a','')
+	b = request.GET.get('b','')
+	c = request.GET.get('c','')
+	
+	values = [a,b,c]
 	value_comment = ['','','']
 
 	for i in range(len(values)):
@@ -25,10 +29,6 @@ def quadratic_results(request):
 				value_comment[i] = messages['mes1']
 			else:
 				value_comment[i] = messages['mes2']
-
-	a = request.GET['a']
-	b = request.GET['b']
-	c = request.GET['c']
 
 	try:
 		a = int(a)
@@ -44,7 +44,7 @@ def quadratic_results(request):
 
 	x1 = ''
 	x2 = ''
-	
+
 	try:
 		discrim = b**2 - 4 * a * c
 		if discrim < 0:
