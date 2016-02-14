@@ -51,12 +51,12 @@ def quadratic_results(request):
 			final_message = messages['mes5']
 		if discrim == 0:
 			x1 = -b/2*a
-			final_message = ''.join(messages['mes6'] + str(round(x1,3)))
+			final_message = ''.join(messages['mes6'] + str(x1))
 		if discrim > 0:
 			x1 = (-b+discrim**0.5)/(2*a)
 			x2 = (-b-discrim**0.5)/(2*a)
 			final_message = ''.join(messages['mes4'] + 
-				'x1 = ' + str(round(x1,3)) + ', x2 = ' + str(round(x2,3)))
+				'x1 = ' + str(x1) + ', x2 = ' + str(x2))
 	except:
 		discrim = ''
 		final_message = ''
