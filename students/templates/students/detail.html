@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>SD Academy - Main</title>
+      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+   </head>
+   <body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+      <nav class="navbar navbar-default">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               </button>
+               <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
+               </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li><a href="">Contacts</a></li>
+                  <li><a href="">Students</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <h1 id="texth">{{ students_details.name }} {{ students_details.surname }}</h1>
+
+            <div style="margin-left:40px;margin-right:40px">
+         <table class="table table-hover">
+            
+            <tbody>
+               <tr>
+               <td>дата рождения</td>
+               <td>{{ students_details.date_of_birth }}</td>
+               </tr>  
+
+               <tr>
+               <td>адрес</td>
+               <td>{{ students_details.address }}</td>
+               </tr>  
+
+               <tr>
+               <td>почта</td>
+               <td>{{ students_details.email }}</td>
+               </tr>  
+
+               <tr>
+               <td>логин skype</td>
+               <td>{{ students_details.skype }}</td>
+               </tr>  
+
+               <tr>
+               <td>телефон</td>
+               <td>{{ students_details.phone }}</td>
+               </tr>  
+
+               <tr>
+               <td>курсы</td>
+               <td>
+               {% for course in course_list %}
+               
+                  <a href="../../courses/{{ course.id }}">{{ course.name }}</a></br>
+               
+               {% endfor %}  
+
+               </td>
+               </tr>  
+            </tbody>
+         </table>
+      </div>
+  
+
+   </body>
+</html>
