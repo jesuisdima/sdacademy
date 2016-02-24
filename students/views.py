@@ -11,7 +11,18 @@ from courses.models import Course
 
 
 def list_view(request):
-	student_list = Student.objects.all()
+	course_id = request.GET.get('course_id','')
+
+	try:
+		course_id = int(course_id)
+	except:
+		pass
+
+	if course_id:
+		student_list = Student.objects.filter(courses=course_id)
+	else:
+		student_list = Student.objects.all()
+
 	template = loader.get_template('students/list.html')
 	context = RequestContext(request, {
         'student_list': student_list
@@ -28,3 +39,4 @@ def detail(request, id):
         'course_list': course_list
         })
 	return HttpResponse(template.render(context))
+	

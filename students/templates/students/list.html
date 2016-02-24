@@ -5,11 +5,11 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>SD Academy - Main</title>
+      <title>SD Academy - Students list</title>
       <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
       <link href="{% static 'css/style.css' %}" rel="stylesheet">
    </head>
-   <body>
+  <body>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="{% static 'js/bootstrap.js' %}"></script>
       <nav class="navbar navbar-default">
@@ -18,13 +18,14 @@
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                <span class="sr-only">Toggle navigation</span>
                </button>
+               <a class="navbar-brand" href="/">
                <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
                </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav">
-                  <li><a href="">Contacts</a></li>
-                  <li><a href="">Students</a></li>
+                  <li><a href="/">Main</a></li>
+                  <li><a href="/students/">Students</a></li>
                </ul>
             </div>
          </div>
@@ -44,13 +45,14 @@
             <tbody>
             {% for student in student_list %}
                <tr>
-                  <td><a href="./{{ student.id }}">{{ student.name }} {{ student.surname }}</a></td>
+               
+                  <td><a href="/students/{{ student.id }}/">{{ student.name }} {{ student.surname }}</a></td>
                   <td>{{ student.address }}</td>
                   <td>{{ student.skype }}</td>
                   <td>
                    {% for j in student.courses.all %}
                    
-                   <a href="../courses/{{ j.id }}">{{ j.name }}</a></br>
+                   <a href="/courses/{{ j.id }}/">{{ j.name }}</a></br>
 
                    {% endfor %} 
                   </td>

@@ -18,17 +18,19 @@
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                <span class="sr-only">Toggle navigation</span>
                </button>
+               <a class="navbar-brand" href="/">
                <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
                </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav">
-                  <li><a href="">Contacts</a></li>
-                  <li><a href="">Students</a></li>
+                  <li><a href="/">Main</a></li>
+                  <li><a href="/students/">Students</a></li>
                </ul>
             </div>
          </div>
       </nav>
+
       <h1 id="texth">Школа программирования "SD Academy"</h1>
       <h4 id="texth">В нашей школе каждый сможет выбрать курс по душе!!!</h4>
 
@@ -43,7 +45,7 @@
             <tbody>
             {% for item in course_list %}
                <tr>
-                  <td><a href="courses/{{ item.id }}">{{ item.name }}</a></td>
+                  <td><a href="/courses/{{ item.id }}/">{{ item.name }}</a></td>
                   <td>{{ item.short_description }}</td>
                </tr>
             {% endfor %}   
