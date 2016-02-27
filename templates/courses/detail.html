@@ -33,7 +33,56 @@
       <h1 id="texth">{{ course_details.name }}</h1>
       <h4 id="texth">{{ course_details.description }}</h4>
 
+    <div style="margin-left:40px;margin-right:40px">
+        <h3 id="texth">Преподаватели:</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="warning">
+                    <th>Учитель</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <a href="/coaches/{{ course_details.coach.id }}/">
+      {{ course_details.coach }} {{ course_details.coach.user.last_name }}</br>
+      </a>
       
+            </td>
+                </tr>
+                <tr>
+                <td>
+                   
+                   {{ course_details.coach.description }}
+                </td>
+                </tr>
+            </tbody>
+        </table>
+
+<table class="table table-bordered">
+            <thead>
+                <tr class="warning">
+                    <th>Ассистент</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <a href="/coaches/{{ course_details.assistant.id }}/">
+      {{ course_details.assistant }} {{ course_details.assistant.user.last_name }}</br>
+      </a>
+      
+            </td>
+                </tr>
+                <tr>
+                <td>
+                   
+                  {{ course_details.assistant.description }}
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>   
                  <div style="margin-left:40px;margin-right:40px">
                  <h3 id="texth">План курса:</h3>
          <table class="table table-hover">

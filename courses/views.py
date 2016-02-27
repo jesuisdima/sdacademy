@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 
 from courses.models import Course, Lesson
+from coaches.models import Coach
 
 
 
@@ -20,9 +21,14 @@ def course_list_index(request):
 def detail(request, id):
 	course_details = Course.objects.get(id=id)
 	lesson_list = Lesson.objects.filter(course=id)
+	coach_list = Coach.objects.filter(coach_courses=id)
 	template = loader.get_template('courses/detail.html')
 	context = RequestContext(request, {
         'course_details': course_details,
-        'lesson_list': lesson_list
+        'lesson_list': lesson_list,
+        'coach_list': coach_list
         })
 	return HttpResponse(template.render(context))
+
+
+	
