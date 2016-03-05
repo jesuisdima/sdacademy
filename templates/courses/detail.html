@@ -1,37 +1,17 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>SD Academy - Course details</title>
-      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-      <link href="{% static 'css/style.css' %}" rel="stylesheet">
-   </head>
-   <body>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="{% static 'js/bootstrap.js' %}"></script>
-      <nav class="navbar navbar-default">
-         <div class="container-fluid">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-               <span class="sr-only">Toggle navigation</span>
-               </button>
-               <a class="navbar-brand" href="/">
-               <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
-               </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                  <li><a href="/">Main</a></li>
-                  <li><a href="/students/?course_id={{ course_details.id }}">Students</a></li>
-               </ul>
-            </div>
-         </div>
-      </nav>
+{% extends "base.html" %}
+
+
+{% block title %}SD Academy - Course details{% endblock title %}
+
+
+{% block get_student %}?course_id={{ course_details.id }}{% endblock get_student%}
+
+
+{% block content %}
+
+
       <h1 id="texth">{{ course_details.name }}</h1>
-      <h4 id="texth">{{ course_details.description }}</h4>
+      <h4 id="texth">{{ course_details.description|truncatechars:32 }}</h4>
 
     <div style="margin-left:40px;margin-right:40px">
         <h3 id="texth">Преподаватели:</h3>
@@ -44,7 +24,7 @@
             <tbody>
                 <tr>
                     <td>
-                    <a href="/coaches/{{ course_details.coach.id }}/">
+                    <a href="{% url "coaches:detail" course_details.coach.id %}">
       {{ course_details.coach }} {{ course_details.coach.user.last_name }}</br>
       </a>
       
@@ -68,7 +48,7 @@
             <tbody>
                 <tr>
                     <td>
-                    <a href="/coaches/{{ course_details.assistant.id }}/">
+                    <a href="{% url "coaches:detail" course_details.assistant.id %}">
       {{ course_details.assistant }} {{ course_details.assistant.user.last_name }}</br>
       </a>
       
@@ -104,6 +84,4 @@
             </tbody>
          </table>
       </div>
-           
-   </body>
-</html>
+{% endblock content %}  

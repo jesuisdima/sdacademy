@@ -1,36 +1,16 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>SD Academy - Main</title>
-      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-      <link href="{% static 'css/style.css' %}" rel="stylesheet">
-   </head>
-   <body>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="{% static 'js/bootstrap.js' %}"></script>
-      <nav class="navbar navbar-default">
-         <div class="container-fluid">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-               <span class="sr-only">Toggle navigation</span>
-               </button>
-               <a class="navbar-brand" href="/">
-               <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
-               </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                  <li><a href="/">Main</a></li>
-                  <li><a href="/students/">Students</a></li>
-               </ul>
-            </div>
-         </div>
-      </nav>
+{% extends "base.html" %}
 
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block title %}SD Academy - Main{% endblock title %}
+
+
+{% block content %}
+
+
+{% include "include/students_count_include.html" %}
       <h1 id="texth">Школа программирования "SD Academy"</h1>
       <h4 id="texth">В нашей школе каждый сможет выбрать курс по душе!!!</h4>
 
@@ -45,14 +25,11 @@
             <tbody>
             {% for item in course_list %}
                <tr>
-                  <td><a href="/courses/{{ item.id }}/">{{ item.name }}</a></td>
-                  <td>{{ item.short_description }}</td>
+                  <td><a href="{% url "courses:detail" item.id %}">{{ item.name|upper }}</a></td>
+                  <td>{{ item.short_description|title }}</td>
                </tr>
             {% endfor %}   
             </tbody>
          </table>
       </div>
-  
-
-   </body>
-</html>
+{% endblock content %}  
