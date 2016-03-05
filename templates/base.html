@@ -19,13 +19,14 @@
                <span class="sr-only">Toggle navigation</span>
                </button>
                <a class="navbar-brand" href="/">
-               <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
+               <img style="width: 24px" alt="Brand" src="{% static 'images/logo.png' %}">
                </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                <ul class="nav navbar-nav">
                   <li class={% block active_main %}{% endblock active_main %}><a href="/">Main</a></li>
                   <li class={% block active_students %}{% endblock active_students %}><a href="{% url "students:list_view" %}{% block get_student %}{% endblock get_student%}">Students</a></li>
+                  <li class={% block active_contacts %}{% endblock active_contacts %}><a href="{% url "contact" %}">Contacts</a></li>
                
 
                </ul>

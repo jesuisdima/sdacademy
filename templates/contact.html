@@ -1,37 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block active_contacts %}active{% endblock active_contacts %}
+
+
+{% block title %}SD Academy - Contacts{% endblock title %}
+
+
+{% block content %}
+
+
+{% include "include/students_count_include.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>SD Academy - Main</title>
-      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-      <link href="{% static 'css/style.css' %}" rel="stylesheet">
-   </head>
-   <body>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="{% static 'js/bootstrap.js' %}"></script>
-      <nav class="navbar navbar-default">
-         <div class="container-fluid">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-               <span class="sr-only">Toggle navigation</span>
-               </button>
-               <a class="navbar-brand" href="{% url 'index' %}">
-               <img style="width: 28px" alt="Brand" src="{% static 'images/logo.png' %}">
-               </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                  <li><a href="{% url 'index' %}">Main</a></li>
-                  <li><a href="{% url 'contact' %}">Contacts</a></li>
-                  <li><a href="{% url 'student_list' %}">Students</a></li>
-               </ul>
-            </div>
-         </div>
-      </nav>
-      <div style="margin:auto; padding:20px">
+       <div style="margin:auto; padding:20px">
          <div class="item">
             <img class="contact_ava" src="{% static 'images/avatar1.png' %}"/>
             <span class="caption">
@@ -69,13 +50,4 @@
             </span>
          </div>
       </div>
-      <div style="display:none">
-      <div class="small1">hello1</div>
-      <div class="small2">hello2</div>
-      <div class="small3">hello3</div>
-      <div class="small4">hello4</div>
-      <div class="small5">hello5</div>
-      <div class="small6">hello6</div>
-      </div>
-   </body>
-</html>
+{% endblock content %}  
