@@ -1,27 +1,12 @@
 # -*- coding: UTF-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse
-from forms import clean_a
+from forms import form_function, messages
 from django import forms
-
-messages = {
-	'mes1': 'коэффициент не определен',
-	'mes2': 'коэффициент не целое число',
-	'mes3': 'коэффициент при первом слагаемом уравнения не может быть равным нулю',
-	'mes4': 'Квадратное уравнение имеет два действительных корня: ',
-	'mes5': 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.',
-	'mes6': 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = '
-}
-
-class QuadraticForm(forms.Form):
-	a = forms.FloatField(label="коэффициент a")
-	b = forms.FloatField(label="коэффициент b")
-	c = forms.FloatField(label="коэффициент c")
-
 
 def quadratic_results(request):
 
-	form = clean_a(request)
+	form = form_function(request)
 
 	a = request.GET.get('a','')
 	b = request.GET.get('b','')
@@ -47,10 +32,10 @@ def quadratic_results(request):
 	except:
 		pass
 
-	try:
-		value_comment[0] = messages['mes3'] if int(a) == 0 else value_comment[0]
-	except:
-		pass
+	#try:
+		#value_comment[0] = messages['mes3'] if int(a) == 0 else value_comment[0]
+	#except:
+		#pass
 
 	x1 = float()
 	x2 = float()
