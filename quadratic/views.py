@@ -1,6 +1,8 @@
 # -*- coding: UTF-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse
+from forms import clean_a
+from django import forms
 
 messages = {
 	'mes1': 'коэффициент не определен',
@@ -11,7 +13,15 @@ messages = {
 	'mes6': 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = '
 }
 
+class QuadraticForm(forms.Form):
+	a = forms.FloatField(label="коэффициент a")
+	b = forms.FloatField(label="коэффициент b")
+	c = forms.FloatField(label="коэффициент c")
+
+
 def quadratic_results(request):
+
+	form = clean_a(request)
 
 	a = request.GET.get('a','')
 	b = request.GET.get('b','')
@@ -61,9 +71,10 @@ def quadratic_results(request):
 		discrim = ''
 		final_message = ''
 
-	return render(request, 'results.html', {
+	return render(request, 'quadratic/results.html', {
 		'a':a, 'a_comment':value_comment[0],
 		'b':b, 'b_comment':value_comment[1],
 		'c':c, 'c_comment':value_comment[2],
 		'discrim':discrim, 
-		'final_message':final_message})
+		'final_message':final_message,
+		'form':form})
