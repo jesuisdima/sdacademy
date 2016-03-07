@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from forms import form_function, messages
 from django import forms
 
+
 def quadratic_results(request):
 
 	form = form_function(request)
@@ -32,10 +33,6 @@ def quadratic_results(request):
 	except:
 		pass
 
-	#try:
-		#value_comment[0] = messages['mes3'] if int(a) == 0 else value_comment[0]
-	#except:
-		#pass
 
 	x1 = float()
 	x2 = float()

@@ -25,13 +25,11 @@ class QuadraticForm(forms.Form):
 
 
 def form_function(request):
-	if request.method == "GET":
+	if request.method == "GET" and len(request.GET):
 		form = QuadraticForm(request.GET)
 		if form.is_valid():
-			print "form is valid"
 			if form.clean_a():
-				print "a is valid"
+				pass
 	else:
-		print "Form is not valid"
 		form = QuadraticForm()
 	return form

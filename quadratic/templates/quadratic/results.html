@@ -27,7 +27,9 @@
       </li>
 </ul>
 {% endcomment %}
+{% if discrim or discrim == 0 %}
       <p>Дискриминант: {{ discrim }}<br/ ></p>
+{% endif%}
          {{ final_message }}<br/ >
       </div>
    </body>
