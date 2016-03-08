@@ -22,14 +22,3 @@ class QuadraticForm(forms.Form):
 		if data == float(0):
 			raise forms.ValidationError(messages['mes3'])
 		return data
-
-
-def form_function(request):
-	if request.method == "GET" and len(request.GET):
-		form = QuadraticForm(request.GET)
-		if form.is_valid():
-			if form.clean_a():
-				pass
-	else:
-		form = QuadraticForm()
-	return form

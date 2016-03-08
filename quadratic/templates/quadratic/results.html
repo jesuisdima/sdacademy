@@ -27,10 +27,12 @@
       </li>
 </ul>
 {% endcomment %}
-{% if discrim or discrim == 0 %}
+{% if discrim != None %}
       <p>Дискриминант: {{ discrim }}<br/ ></p>
 {% endif%}
+{% if final_message %}
          {{ final_message }}<br/ >
+{% endif %}
       </div>
    </body>
 </html>
