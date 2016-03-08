@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block title %}SD Academy - Remove student{% endblock title %}
+
+
+{% block content %}
+
+
+{% include "include/students_count_include.html" %}
+       <h1 id="texth">Удаление студента</h1>
+
+      <div style="margin-left:15px;margin-right:15px;margin-bottom:40px">
+
+<div class="alert alert-danger" role="alert">
+Студент {{ model_info.name}} {{ model_info.surname}} будет удалён!
+</div>
+
+         <form method="post">
+         {% csrf_token %}
+         <input type="submit" value="Удалить">
+         </form>
+      </div>
+  
+{% endblock content %}  
