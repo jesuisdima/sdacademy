@@ -12,13 +12,13 @@ messages = {
 }
 
 class QuadraticForm(forms.Form):
-	a = forms.FloatField(label="коэффициент a")
-	b = forms.FloatField(label="коэффициент b")
-	c = forms.FloatField(label="коэффициент c")
+	a = forms.IntegerField(label="коэффициент a")
+	b = forms.IntegerField(label="коэффициент b")
+	c = forms.IntegerField(label="коэффициент c")
 
 
 	def clean_a(self):
 		data = self.cleaned_data['a']
-		if data == float(0):
+		if data == int(0):
 			raise forms.ValidationError(messages['mes3'])
 		return data

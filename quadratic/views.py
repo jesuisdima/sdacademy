@@ -12,9 +12,9 @@ def quadratic_results(request):
 		form = QuadraticForm(request.GET)
 		if form.is_valid():
 			if form.clean_a():
-				a = float(request.GET['a'])
-				b = float(request.GET['b'])
-				c = float(request.GET['c'])
+				a = int(request.GET['a'])
+				b = int(request.GET['b'])
+				c = int(request.GET['c'])
 				discrim = b**2 - 4 * a * c
 				if discrim < 0:
 					final_message = messages['mes5']
