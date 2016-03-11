@@ -20,10 +20,10 @@ def course_list_index(request):
         })
 	return HttpResponse(template.render(context))
 
-def detail(request, id):
-	course_details = Course.objects.get(id=id)
-	lesson_list = Lesson.objects.filter(course=id)
-	coach_list = Coach.objects.filter(coach_courses=id)
+def detail(request, pk):
+	course_details = Course.objects.get(id=pk)
+	lesson_list = Lesson.objects.filter(course=pk)
+	coach_list = Coach.objects.filter(coach_courses=pk)
 	template = loader.get_template('courses/detail.html')
 	context = RequestContext(request, {
         'course_details': course_details,
