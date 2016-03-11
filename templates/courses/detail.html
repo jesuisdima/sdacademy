@@ -10,6 +10,18 @@
 {% block content %}
 
 
+<div style="margin-left:15px;float:left">
+<a href="add_lesson/">
+<button class="btn btn-primary" type="button">
+<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  Добавить занятие
+</button>
+</a>
+</div>
+<br>
+
+
+
       <h1 id="texth">{{ course_details.name }}</h1>
       <h4 id="texth">{{ course_details.description|truncatechars:32 }}</h4>
 

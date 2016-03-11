@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block title %}SD Academy - Add lesson{% endblock title %}
+
+
+{% block content %}
+
+
+{% include "include/students_count_include.html" %}
+       <h1 id="texth">Добавление нового занятия</h1>
+
+      <div style="margin-left:40px;margin-right:40px;margin-bottom:40px">
+         <form method="post">
+         {% csrf_token %}
+         <table class="table table-hover">
+         {{ model_form.as_table }}
+         </table>
+         <input type="submit" value="Создать">
+         </form>
+      </div>
+  
+{% endblock content %}  
