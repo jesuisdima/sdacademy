@@ -84,15 +84,15 @@ def remove(request, pk):
 
 
 def add_lesson(request, pk):
+	application_course = Course.objects.get(id=pk)
 	if request.method == "POST":
 		model_form = LessonModelForm(request.POST)
 		if model_form.is_valid():
 			application = model_form.save()
 			messages.success(request, 
 				'Lesson %s has been successfully added.' % application.subject)
-			return redirect('index')
+			return redirect('courses:detail', application_course.id)
 	else:
-		application_course = Course.objects.get(id=pk)
 		model_form = LessonModelForm(initial={'course':application_course})
 	template = loader.get_template('courses/add_lesson.html')
 	context = RequestContext(request, {
