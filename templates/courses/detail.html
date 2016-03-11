@@ -37,10 +37,11 @@
             <tbody>
                 <tr>
                     <td>
+                    {% if course_details.coach %}
                     <a href="{% url "coaches:detail" course_details.coach.id %}">
       {{ course_details.coach }} {{ course_details.coach.user.last_name }}</br>
       </a>
-      
+                    {% endif %}
             </td>
                 </tr>
                 <tr>
@@ -61,10 +62,11 @@
             <tbody>
                 <tr>
                     <td>
+                    {% if course_details.assistant %}
                     <a href="{% url "coaches:detail" course_details.assistant.id %}">
       {{ course_details.assistant }} {{ course_details.assistant.user.last_name }}</br>
       </a>
-      
+                    {% endif %}
             </td>
                 </tr>
                 <tr>
