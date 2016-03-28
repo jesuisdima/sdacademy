@@ -2,9 +2,13 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext, loader
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.views import generic
 from django.contrib import messages
+
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
 from students.models import Student
 from courses.models import Course
@@ -12,51 +16,46 @@ from students.forms import StudentModelForm
 
 
 
-def list_view(request):
-	course_id = request.GET.get('course_id','')
+class StudentListView(ListView):
+	model = Student
+	template_name = "students/list.html"
+	context_object_name = "student_list"
 
-	try:
-		course_id = int(course_id)
-	except:
-		pass
-
-	if course_id:
-		student_list = Student.objects.filter(courses=course_id)
-	else:
-		student_list = Student.objects.all()
-
-	template = loader.get_template('students/list.html')
-	context = RequestContext(request, {
-        'student_list': student_list
-        })
-	return HttpResponse(template.render(context))
+	def get_queryset(self):
+		course_id = self.request.GET.get('course_id', None)
+		if course_id:
+			students = Student.objects.filter(courses=course_id)
+		else:
+			students = Student.objects.all()
+		return students
 
 
-def detail(request, pk):
-	students_details = Student.objects.get(id=pk)
-	course_list = Course.objects.filter(student=pk)
-	template = loader.get_template('students/detail.html')
-	context = RequestContext(request, {
-        'students_details': students_details,
-        'course_list': course_list
-        })
-	return HttpResponse(template.render(context))
+class StudentDetailView(DetailView):
+	model = Student
+	template_name = "students/detail.html"
+	context_object_name = "students_details"
 
-def create(request):
-	if request.method == "POST":
-		model_form = StudentModelForm(request.POST)
-		if model_form.is_valid():
-			application = model_form.save()
-			messages.success(request, 
-				'Student %s %s has been successfully added.' % (application.name, application.surname))
-			return redirect('students:list_view')
-	else:
-		model_form = StudentModelForm()
-	template = loader.get_template('students/add.html')
-	context = RequestContext(request, {
-    'model_form': model_form,
-        })
-	return HttpResponse(template.render(context))
+	def get_context_data(self, **kwargs):
+		context = super(StudentDetailView, self).get_context_data(**kwargs)
+		context['course_list'] = Course.objects.filter(student=self.kwargs['pk'])
+		return context
+
+
+class StudentCreateView(CreateView):
+	model = Student
+	template_name = "students/add.html"
+	success_url = reverse_lazy('students:list_view')
+	
+	def get_context_data(self, **kwargs):
+		context = super(StudentCreateView, self).get_context_data(**kwargs)
+		context['title'] = "Student registration"
+		return context
+
+	def form_valid(self, form):
+		instance = form.save(commit=False)
+		messages.success(self.request, 
+				'Student %s %s has been successfully added.' % (instance.name, instance.surname))
+		return super(StudentCreateView, self).form_valid(form)
 
 
 def edit(request, pk):
