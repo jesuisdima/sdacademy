@@ -8,7 +8,7 @@ from django.contrib import messages
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from students.models import Student
 from courses.models import Course
@@ -18,8 +18,6 @@ from students.forms import StudentModelForm
 
 class StudentListView(ListView):
 	model = Student
-	template_name = "students/list.html"
-	context_object_name = "student_list"
 
 	def get_queryset(self):
 		course_id = self.request.GET.get('course_id', None)
@@ -32,8 +30,6 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
 	model = Student
-	template_name = "students/detail.html"
-	context_object_name = "students_details"
 
 	def get_context_data(self, **kwargs):
 		context = super(StudentDetailView, self).get_context_data(**kwargs)
@@ -43,12 +39,12 @@ class StudentDetailView(DetailView):
 
 class StudentCreateView(CreateView):
 	model = Student
-	template_name = "students/add.html"
 	success_url = reverse_lazy('students:list_view')
 	
 	def get_context_data(self, **kwargs):
 		context = super(StudentCreateView, self).get_context_data(**kwargs)
 		context['title'] = "Student registration"
+		context['page_title'] = "SD Academy - Add student"
 		return context
 
 	def form_valid(self, form):
@@ -58,32 +54,37 @@ class StudentCreateView(CreateView):
 		return super(StudentCreateView, self).form_valid(form)
 
 
-def edit(request, pk):
-	application = Student.objects.get(id=pk)
-	if request.method == "POST":
-		model_form = StudentModelForm(request.POST, instance=application)
-		if model_form.is_valid():
-			application = model_form.save()
-			messages.success(request, 
-				'Info on the student has been sucessfully changed.')
-			return redirect('students:edit', application.id)
-	else:
-		model_form = StudentModelForm(instance=application)
-	template = loader.get_template('students/edit.html')
-	context = RequestContext(request, {
-    'model_form': model_form,
-        })
-	return HttpResponse(template.render(context))
+class StudentUpdateView(UpdateView):
+	model = Student
 
-def remove(request, pk):
-	application = Student.objects.get(id=pk)
-	if request.method == "POST":
-		application.delete()
-		messages.success(request, 
-				'Info on %s %s has been sucessfully deleted.' % (application.name, application.surname))
-		return redirect('students:list_view')
-	template = loader.get_template('students/remove.html')
-	context = RequestContext(request, {
-    'model_info': application,
-        })
-	return HttpResponse(template.render(context))
+	def get_context_data(self, **kwargs):
+		context = super(StudentUpdateView, self).get_context_data(**kwargs)
+		context['title'] = "Student info update"
+		context['page_title'] = "SD Academy - Edit student"
+		return context
+
+	def get_success_url(self):
+		return reverse('students:edit', kwargs={
+			'pk': self.object.pk,
+			})
+
+	def form_valid(self, form):
+		messages.success(self.request, 
+				'Info on the student has been sucessfully changed.')
+		return super(StudentUpdateView, self).form_valid(form)
+
+
+class StudentDeleteView(DeleteView):
+	model = Student
+	success_url = reverse_lazy('students:list_view')
+
+	def get_context_data(self, **kwargs):
+		context = super(StudentDeleteView, self).get_context_data(**kwargs)
+		context['title'] = "Student info suppression"
+		return context
+
+	def delete(self, request, **kwargs):
+		instance = Student.objects.get(id=self.kwargs['pk'])
+		messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (instance.name, instance.surname))
+		return super(StudentDeleteView, self).delete(request, **kwargs)
+

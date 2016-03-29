@@ -11,7 +11,7 @@
 
 
 {% include "include/students_count_include.html" %}
-       <h1 id="texth">{{ students_details.name }} {{ students_details.surname }}</h1>
+       <h1 id="texth">{{ object.name }} {{ object.surname }}</h1>
 
             <div style="margin-left:40px;margin-right:40px">
          <table class="table table-hover">
@@ -19,27 +19,27 @@
             <tbody>
                <tr>
                <td>дата рождения</td>
-               <td>{{ students_details.date_of_birth }}</td>
+               <td>{{ object.date_of_birth }}</td>
                </tr>  
 
                <tr>
                <td>адрес</td>
-               <td>{{ students_details.address }}</td>
+               <td>{{ object.address }}</td>
                </tr>  
 
                <tr>
                <td>почта</td>
-               <td>{{ students_details.email }}</td>
+               <td>{{ object.email }}</td>
                </tr>  
 
                <tr>
                <td>логин skype</td>
-               <td>{{ students_details.skype }}</td>
+               <td>{{ object.skype }}</td>
                </tr>  
 
                <tr>
                <td>телефон</td>
-               <td>{{ students_details.phone }}</td>
+               <td>{{ object.phone }}</td>
                </tr>  
 
                <tr>
