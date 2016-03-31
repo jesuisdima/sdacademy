@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 
-{% block title %}{{ page_title }}{% endblock title %}
+{% block active_feedback %}active{% endblock active_feedback %}
+
+
+{% block title %}SD Academy - Leave your feedback{% endblock title %}
 
 
 {% block content %}
@@ -29,8 +32,8 @@
          <table class="table table-hover">
          {{ form.as_table }}
          </table>
-         <input type="submit" value="Сохранить">
+         <input type="submit" value="Отправить">
          </form>
       </div>
   
-{% endblock content %}
+{% endblock content %}  

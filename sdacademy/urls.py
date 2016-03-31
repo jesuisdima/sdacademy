@@ -1,8 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+from feedbacks import views
+
 from sdacademy.views import index, contact, student_list, student_detail
 from courses.views import course_list_index
+
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
@@ -10,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^$', course_list_index, name="index"),
     url(r'^index/', course_list_index, name="index"),
+    url(r'^feedback/', views.FeedbackView.as_view(), name="feedback"),
     #url(r'^$', include('courses.urls', namespace='courses')),
     #url(r'^index/', include('courses.urls', namespace='courses')),
     url(r'^courses/', include('courses.urls', namespace='courses')),
