@@ -87,5 +87,25 @@
             {% endfor %}   
             </tbody>
          </table>
-      </div>
+  <nav>
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo; Previous</span></a></li>
+    {% endif %}
+
+
+    {% for page in paginator.page_range %}
+      {% if page == page_obj.number %}
+      <li class="active"><a href="/students/?page={{ page }}">{{ page }}<span class="sr-only"></span></a></li>
+      {% else %}
+        <li><a href="/students/?page={{ page }}">{{ page }}<span class="sr-only"></span></a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next"><span aria-hidden="true">Next &raquo;</span></a></li>
+    {% endif %}
+  </ul>
+</nav>
+</div>
 {% endblock content %}  

@@ -90,3 +90,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+#EMAIL_HOST_USER = 'qwerty'
+#EMAIL_HOST_PASSWORD = 'qwerty'
+ADMINS = (('Dmitriy', 'jesuisdima@hotmail.com'),)
